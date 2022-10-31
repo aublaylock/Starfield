@@ -25,7 +25,7 @@ void mousePressed() {
   int amountOfParticles = 20;
   for (int i = 0; i<amountOfParticles; i++)
     particles.add(new Particle(mouseX, mouseY, rand(1, 360), rand(5, 10), new int[]{(int)rand(0, 255), (int)rand(0, 255), (int)rand(0, 255)}));
-  //particles.add(new OddballParticle(mouseX, mouseY, rand(1, 360), rand(5, 10), new int[]{(int)rand(0, 255), (int)rand(0, 255), (int)rand(0, 255)}));
+  particles.add(new OddballParticle(mouseX, mouseY, rand(1, 360), rand(5, 10), new int[]{(int)rand(0, 255), (int)rand(0, 255), (int)rand(0, 255)}));
 }
 
 
@@ -74,19 +74,17 @@ class Particle {
   }
 }
 
-//class OddballParticle extends Particle {
-//  OddballParticle(double x, double y, double angle, double speed, int[] rgb) {
-//    super(x, y, angle, speed, rgb);
-//  }
-
-//  @Override 
-//  void move() {
-//    angle+=8.5;
-//    speed+=0.3;
-//    super.move();
-//  }
-//  void show() {
-//    fill(rgb[0], rgb[1], rgb[2]);
-//    ellipse((float)x, (float)y, 25, 25);
-//  }
-//}
+class OddballParticle extends Particle {
+  OddballParticle(double x, double y, double angle, double speed, int[] rgb) {
+    super(x, y, angle, speed, rgb);
+  }
+  void move() {
+    angle+=8.5;
+    speed+=0.3;
+    super.move();
+  }
+  void show() {
+    fill(rgb[0], rgb[1], rgb[2]);
+    ellipse((float)x, (float)y, 25, 25);
+  }
+}
