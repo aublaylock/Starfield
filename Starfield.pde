@@ -9,16 +9,16 @@ void draw() {
   fill(0, 0, 0, 25);
   rect(0, 0, 1000, 1000);
   fill(255, 255, 255);
-  //ArrayList<Particle> shortenedParticles = new ArrayList<Particle>();
-  //int maxDistance = 707;
+  ArrayList<Particle> shortenedParticles = new ArrayList<Particle>();
+  int maxDistance = 707;
   for (Particle particle : particles) {
     particle.move();
     particle.show();
-    //if (distanceBetween(500, 500, particle.getX(), particle.getY())<maxDistance) {
-    //  shortenedParticles.add(particle);
-    //}
+    if (distanceBetween(500, 500, particle.getX(), particle.getY())<maxDistance) {
+      shortenedParticles.add(particle);
+    }
   }
-  //particles = shortenedParticles;
+  particles = shortenedParticles;
 }
 
 void mousePressed() {
